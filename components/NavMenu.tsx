@@ -1,56 +1,91 @@
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import NavItem from "./NavItem";
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "./ui/navigation-menu";
 
 const NavMenu = () => {
   return (
-    <div className="flex items-start justify-center gap-5">
-      <DropdownMenu>
-        <DropdownMenuTrigger className="text-MediumGray transition-colors hover:text-AlmostBlack">
-          Features
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="mr-8 mt-2 px-4 py-4  shadow-2xl">
-          <DropdownMenuItem>
-            <NavItem image="/icon-todo.svg" title="Todo List" />
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <NavItem image="/icon-calendar.svg" title="Calendar" />
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <NavItem image="/icon-reminders.svg" title="Reminders" />
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <NavItem image="/icon-planning.svg" title="Planning" />
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <DropdownMenu>
-        <DropdownMenuTrigger className="text-MediumGray transition-colors hover:text-AlmostBlack">
-          Company
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="ml-8 mt-2 px-4 py-4 text-MediumGray shadow-2xl">
-          <DropdownMenuItem>History</DropdownMenuItem>
-          <DropdownMenuItem>Our&nbsp;Team</DropdownMenuItem>
-          <DropdownMenuItem>Blog</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <Link
-        href="#"
-        className="text-MediumGray transition-colors hover:text-AlmostBlack"
-      >
-        Careers
-      </Link>
-      <Link
-        href="#"
-        className="text-MediumGray transition-colors hover:text-AlmostBlack"
-      >
-        About
-      </Link>
+    <div className="flex items-center justify-center gap-x-4">
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger
+              className={cn(
+                "text-MediumGray transition-colors hover:text-AlmostBlack",
+              )}
+            >
+              <p>Features</p>
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="shadow-2xl ">
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="#">
+                    <NavItem image="/icon-todo.svg" title="Todo List" />
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="#">
+                    <NavItem image="/icon-calendar.svg" title="Calendar" />
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="#">
+                    <NavItem image="/icon-reminders.svg" title="Reminders" />
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="#">
+                    <NavItem image="/icon-planning.svg" title="Planning" />
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      <NavigationMenu>
+        <NavigationMenuList className="flex flex-1 items-center justify-center gap-x-4">
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="text-MediumGray transition-colors hover:text-AlmostBlack">
+              Company
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="text-MediumGray">
+              <NavigationMenuList>
+                <NavigationMenuItem>History</NavigationMenuItem>
+                <NavigationMenuItem>Our&nbsp;Team</NavigationMenuItem>
+                <NavigationMenuItem>Blog</NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="#" legacyBehavior passHref>
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} text-MediumGray transition-colors hover:text-AlmostBlack`}
+              >
+                Careers
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="#" legacyBehavior passHref>
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} text-MediumGray transition-colors hover:text-AlmostBlack`}
+              >
+                About
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
     </div>
   );
 };
