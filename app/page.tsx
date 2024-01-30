@@ -42,7 +42,7 @@ const HomePage = () => {
           </p>
           <Button
             variant="default"
-            className="rounded-2xl px-6 py-6 text-base text-AlmostWhite"
+            className="rounded-2xl border-2 border-AlmostBlack px-6 py-6 text-base text-AlmostWhite hover:bg-AlmostWhite hover:text-AlmostBlack"
           >
             Learn More
           </Button>
