@@ -60,9 +60,31 @@ const NavMenu = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent className="text-MediumGray">
               <NavigationMenuList>
-                <NavigationMenuItem>History</NavigationMenuItem>
-                <NavigationMenuItem>Our&nbsp;Team</NavigationMenuItem>
-                <NavigationMenuItem>Blog</NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="#"
+                    className="text-MediumGray transition-colors hover:text-AlmostBlack"
+                  >
+                    History
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  {" "}
+                  <NavigationMenuLink
+                    href="#"
+                    className="text-MediumGray transition-colors hover:text-AlmostBlack"
+                  >
+                    Our&nbsp;Team
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="#"
+                    className="text-MediumGray transition-colors hover:text-AlmostBlack"
+                  >
+                    Blog
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenuContent>
           </NavigationMenuItem>
